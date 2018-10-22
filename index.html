@@ -9,19 +9,81 @@
 </head>
 <body>
   <div id="content">
+    <button id="btn-click">Click Me!</button>
+    <button id="btn-hover">Hover Me</button>
+
     <h1>The Complete jQuery Course - Project Structure</h1>
 
     <div class="red-box">Red</div>
     <div class="green-box">Green</div>
-    <div class="green-box" style="display: none">Green 2</div>
+    <!-- <div class="green-box" style="display: none">Green 2</div> -->
     <div class="blue-box">Blue</div>
-    <div class="blue-box" style="display:none">Blue 2</div>
+    <!-- <div class="dummy">Dummy</div> -->
+    <!-- <div class="blue-box" style="display:none">Blue 2</div> -->
     <div class="clear"></div>
 
-    <h2>Hi, I'm the Base Project!</h2>
-    <p>Add elements here as you like to try out jQuery. This is your playground to test out anything that comes into your mind.</p>
-    <a href="#" >Read More:</a>
-    <p id="toggle"><strong>OR:</strong> Copy this project structure into a new directory first to create separate playgrounds for animations, manipulations, event handlers etc.</p>
+    <h2 data-myh2data="This is h2 element">Hi, I'm the Base Project!</h2>
+    <p>Add elements <em>here</em> as you like to try out <a href="/url" id="special-link">jQuery</a>. This is your playground to test out anything that comes into your mind.</p>   
+    <p><strong>OR:</strong> Copy this project structure into a new directory first to create separate playgrounds for animations, manipulations, event handlers etc.</p>
+
+    <div class="gallery">
+      <img src="images/laptop-mobile_small.jpg"  alt="" > <!-- width="640px" height="427px" -->
+      <img src="images/laptop-on-table_small.jpg", alt="">
+      <img src="images/people-office-group-team_small.jpg" alt="">
+
+    </div>
+
+    <ul id="list">
+      <li>
+        Main item 1
+        <ul>
+          <li>Sub item 1</li>
+          <li>Sub item 2</li>
+        </ul>
+      </li>
+      <li>
+        Main item 2
+        <ul>
+          <li>Sub item 1</li>
+          <li>Sub item 2</li>
+        </ul>
+      </li>
+      <li>
+        Main item 3
+        <ul>
+          <li>Sub item 1</li>
+          <li>Sub item 2</li>
+        </ul>
+      </li>
+      <li>
+        Main item 4
+        <ul>
+          <li>Sub item 1</li>
+          <li>Sub item 2</li>
+        </ul>
+      </li>
+    </ul>
+    
+    <form action="">
+      <input type="text" value="Busra"><br>
+      <input type="password"><br>
+      <input type="range" min="1" max="10" value="7">
+      <input type="checkbox" name="checkbox" checked><label for="checkbox">Check me!</label><br>
+      <textarea name="" id="" cols="30" rows="10"></textarea><br>
+      <input type="submit" value="submit">
+    </form>
+
+    <div class="lightbox">
+      <h2>This is lightbox div</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis perspiciatis fugit iusto sed molestiae, explicabo ab soluta corrupti suscipit delectus cum minus, quasi nemo illo facilis, nisi maxime tenetur praesentium!</p>
+      
+      <form action="" class="form">
+        <input type="email" placeholder="Enter email address">
+        <input type="button" value="Sign up">
+        
+
+      </form>
+     </div>
   </div>
 </body>
 </html>
