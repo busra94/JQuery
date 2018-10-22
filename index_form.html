@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  <script src="js/js_form.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>The Complete jQuery Course - Project Structure</title>
+</head>
+<body>
+  <div id="content">    
+
+    <h1>The Complete jQuery Course - Project Structure</h1>
+    <h2>Hi, I'm the Base Project!</h2>
+
+    <form id="form" action="">
+      <input id="name" type="text" placeholder="Enter your name"><br>
+      <span id="name-feedback"></span><br>
+      <!-- <label class="warning" ></label><br> -->
+     
+      <input id="password" type="password" placeholder="Enter a password"><br>
+      <span id="password-feedback"></span><br>
+     
+      <input id="amount" type="range" min="1" max="10" value="7"><br>
+      
+      <textarea id="message" name="" cols="30" rows="10"></textarea><br>
+      <span id="message-feedback"></span><br><br>
+
+      <input id="checkbox" type="checkbox" name="checkbox" checked><label for="checkbox">Check me!</label><br>  <!-- we can give name to label what we want -->
+      <span id="checkbox-feedback"></span><br><br>
+
+      <input id="submit" type="submit" value="submit"> <br> <br>
+
+    <label for="select_label">Select: </label>    
+    <select name="" id="selection" >
+        <option value="">1</option> <!-- option $ is can get by text() not val() -->
+        <option value="">2</option>
+        <option value="">3</option>
+        <option value="">4</option>
+        <option value="">5</option>
+        <option value="">6</option>
+    </select>        
+      
+
+    </form>
+    
+    </div>
+</body>
+</html>

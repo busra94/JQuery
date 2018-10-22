@@ -132,3 +132,9 @@ h2 {
   transform: scaleX(1); }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.warning{
+  display: none;
+  font-style: italic;
+}
