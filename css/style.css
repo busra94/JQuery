@@ -134,7 +134,9 @@ h2 {
 /*# sourceMappingURL=style.css.map */
 
 
-.warning{
-  display: none;
+#name-feedback, #password-feedback, #message-feedback , #checkbox-feedback {
+  /* display: none; */
   font-style: italic;
+  color: #811;
+  
 }
