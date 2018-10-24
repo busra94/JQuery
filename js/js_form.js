@@ -274,26 +274,68 @@ function validateCheckboxField(checkbox,event){
 
  }); 
 
- $(function(){
-    /* JSON, $.getJSON() */
-    var  flickrApiUrl = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?" /* ?jsoncallback=? when we add that we send jsonp request not json request and this necessary for retrieve data from another server  */
-    /* this is also an event */
-    $.getJSON(flickrApiUrl, { /* this call is asynchronous. Request was handled by flickr.com  and it returns data and when request finished,  data handled by the event    */
-        //options
-        tags:"children , babies",
-        tagmode: "any",  /* any: sun or beach, all: sun and beach. */
-        format: "json"
-    }).done(function(data){
-        //success
-        console.log(data);
-        $.each(data.items, function(index, item){ /* iterate over arrays, objects, if we set parameter to object then first parameter should be object(key) second is value */
-            console.log(item); 
-            $("<img>").attr( "src", item.media.m).appendTo("#flickr");
+ $(function(){ /* images from flicr.com */
+    // /* JSON, $.getJSON() */
+    // var  flickrApiUrl = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?" /* ?jsoncallback=? when we add that we send jsonp request not json request and this necessary for retrieve data from another server  */
+    // /* this is also an event */
+    // $.getJSON(flickrApiUrl, { /* this call is asynchronous. Request was handled by flickr.com  and it returns data and when request finished,  data handled by the event    */
+    //     //options
+    //     tags:"children , babies",
+    //     tagmode: "any",  /* any: sun or beach, all: sun and beach. */
+    //     format: "json"
+    // }).done(function(data){
+    //     //success
+    //     console.log(data);
+    //     $.each(data.items, function(index, item){ /* iterate over arrays, objects, if we set parameter to object then first parameter should be object(key) second is value */
+    //         console.log(item); 
+    //         $("<img>").attr( "src", item.media.m).appendTo("#flickr");
 
-        })   
-    }).fail(function(){
-        //failure
-        alert("Ajax call failed."); 
-    }) 
+    //         if(index == 4)
+    //         return false;
+
+    //     })   
+    // }).fail(function(){
+    //     //failure
+    //     alert("Ajax call failed."); 
+    // }) 
 
  });
+
+ $(function(){ /* star wars api (or poke api) */
+    var swapiUrl = "https://swapi.co/api/people/"; 
+
+    $.getJSON(swapiUrl)
+    .done(function(people){ /* request success */
+        console.log(people);
+        $.each(people.results, function(index,people){ /* iterate over people */
+            var name = people.name.charAt(0).toUpperCase() + people.name.slice(1); // capitalize first letter of name and get the name except first letter and merge them.
+            var link = $("<a>").attr("id", people.name).attr("href" , "#").append($("<strong>").text(name));
+            // var paragraph = $("<p>").html("People name no: " + (index + 1) + " is " + name + "</p>")  ;
+            var paragraph = $("<p>").html("People name no: " + (index + 1) + " is ").append(link);
+            paragraph.appendTo("#people");
+
+            link.click(function(event){
+                var detailPeople = people;
+                console.log(detailPeople);
+                var detailDiv = $("#detail-people");
+                detailDiv.empty();
+                detailDiv.append("<h3>" + name + "</h3>")
+                $.each( detailPeople.films, function(index){
+                    detailDiv.append("<p>" + detailPeople.films[index] + "</p>");  /* appendTo can only be applied on jQuery objects. */
+                })
+            //      $.each( detailPeople.films, function(index,film){
+            //     var link = $("<a>").attr("href" , "#").text(film);
+            //     var p = $("<p>").append(link);  /* appendTo can only be applied on jQuery objects. */
+            //     detailDiv.append(p);
+            // })
+                event.preventDefault(); /* it does not take us to default (href => #) */ /* if we do not add this line, because we assign # to href to all, it seems like all links visited    */                      
+             });    
+                
+        }); 
+    }).fail(function(){ /* request fail */
+        console.log("fetching data is failed.");
+    }).always(function(){ /* in both of two case will executed */
+        console.log("StarWars people are interesting.");
+    });
+ }); 
+
